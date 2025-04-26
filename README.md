@@ -1,12 +1,52 @@
-# React + Vite
+Real-Time Crypto Price Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tech Stack:
+React.js (with Vite)
+Redux Toolkit (createSlice, configureStore)
+TailwindCSS for styling
 
-Currently, two official plugins are available:
+Architecture:
+/src
+  /components    → Table and UI components
+  /redux         → cryptoSlice and store setup
+  /utils         → Mock WebSocket simulation
+  App.jsx
+  main.jsx
+/public
+  index.html
+README.md
+package.json
+vite.config.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+All asset data is managed by Redux Toolkit.
+Simulated real-time updates using setInterval.
 
-## Expanding the ESLint configuration
+Setup Instructions
+1. Clone the Repository
+    git clone https://github.com/kameshnerpagar/crypto-price-tracker.git
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Navigate into the Project
+    cd crypto-price-tracker
+    
+4. Install Dependencies
+    npm install
+    
+5. Run the Application
+    npm run dev
+
+Application will start at:
+http://localhost:5173/
+
+
+Project Walkthrough : 
+
+1. After running the app (npm run dev), a responsive crypto price table is displayed.
+2. The table shows details for 5 assets: Bitcoin (BTC), Ethereum (ETH), Tether (USDT), etc.
+3. Every 1–2 seconds, the following values update automatically:
+4. Price
+5. 1h %, 24h %, 7d % changes
+6. 24h Volume
+7. Positive % changes are color-coded green, negative changes are red.
+8. The "7D Chart" column shows a static trend image or SVG.
+9. The layout adjusts responsively for smaller screen sizes (mobile/tablet).
+10. All data is fully managed through Redux Toolkit slices and selectors (no local component state).
